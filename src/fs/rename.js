@@ -1,9 +1,9 @@
 import { rename as renameFile, access, constants } from "fs";
+import { resolve } from "path";
 
 const rename = async () => {
-  const pathToFile = "src/fs/files/";
-  const initialFile = `${pathToFile}wrongFilename.txt`;
-  const renamedFile = `${pathToFile}properFilename.md`;
+  const initialFile = resolve("src/fs/files/wrongFilename.txt");
+  const renamedFile = resolve("src/fs/files/properFilename.md");
 
   access(initialFile, constants.F_OK, (err) => {
     if (err) throw new Error("FS operation failed");

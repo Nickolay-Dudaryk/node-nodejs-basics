@@ -1,7 +1,8 @@
 import { access, appendFile, constants } from "fs/promises";
+import { resolve } from "path";
 
 const create = async () => {
-  const filePath = "src/fs/files/fresh.txt";
+  const filePath = resolve("src/fs/files/fresh.txt");
 
   try {
     await access(filePath, constants.F_OK);
